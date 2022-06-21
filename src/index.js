@@ -67,6 +67,8 @@ async function onLoadMore() {
       overlayOpacity: 0.8,
     });
 
+    lightbox.refresh();
+
     const { height: cardHeight } = document
     .querySelector(".gallery")
     .firstElementChild.getBoundingClientRect();
