@@ -60,8 +60,40 @@
   &:hover {
     background-color: #5286da;
   }
-
   &:active {
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
   }
+}
+
+.to-top {
+  display:flex;
+  align-items: center;
+  justify-content:center;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  width: 50px;
+  height: 50px;
+  background-color: #649eff;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: all;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);;
+  opacity: 0;
+  pointer-events: none;
+  &:hover {
+    background-color: #5286da;
+  }
+  &:active {
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.active {
+  opacity: 1;
+  pointer-events: auto;
 }

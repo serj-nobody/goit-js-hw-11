@@ -9,10 +9,27 @@ const refs = {
   form: document.querySelector('#search-form'),
   gallery: document.querySelector('.gallery'),
   loadMoreBtn: document.querySelector('.load-more'),
+  toTopBtn: document.querySelector('.to-top'),
 }
+
+// console.log(refs.toTopBtn);
 
 refs.form.addEventListener('submit', onSearch);
 refs.loadMoreBtn.addEventListener('click', onLoadMore);
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 100) {
+    refs.toTopBtn.classList.add('active');
+  } else {
+    refs.toTopBtn.classList.remove('active');
+  }
+})
+refs.toTopBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'smooth'
+  });
+})
 
 async function onSearch(event) {
   event.preventDefault();
