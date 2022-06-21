@@ -2,8 +2,18 @@
   max-width: 1280px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   grid-gap: 10px;
+  @media screen and (min-width: 480px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  @media screen and (min-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .photo-card {
@@ -20,14 +30,18 @@
 
 .info {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .info-item {
   display: flex;
   flex-direction: column;
-  padding: 8px 12px;
-  font-size: 12px;
+  padding: 6px 8px;
+  font-size: 10px;
+  @media screen and (min-width: 1200px) {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
 }
 
 .load-more {
