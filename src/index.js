@@ -62,9 +62,12 @@ async function onSearch(event) {
       Notiflix.Notify.success(`Hooray! We found ${response.data.totalHits} images.`, {
           distance: '80px',
           timeout: 2000,
-        });
+      });
     }
-    
+
+    if (refs.gallery.childElementCount === response.data.totalHits) {
+      refs.loadMoreBtn.style.display = 'none';
+    } 
   } catch (error) {
     console.log(error);
   }
@@ -94,14 +97,17 @@ async function onLoadMore() {
       top: cardHeight * 4 + 100,
       behavior: "smooth",
     });
-    
+
+    if (refs.gallery.childElementCount === response.data.totalHits) {
+      Notiflix.Notify.failure("We're sorry, but you've reached the end of search results.", {
+        position: 'center-bottom',
+        distance: '80px',
+        failure: {background: '#ff7f50'},
+      });
+      refs.loadMoreBtn.style.display = 'none';
+    }   
   } catch (error) {
-    Notiflix.Notify.failure("We're sorry, but you've reached the end of search results.", {
-          position: 'center-bottom',
-          distance: '80px',
-          failure: {background: '#ff7f50'},
-        });
-    refs.loadMoreBtn.style.display = 'none';
+    console.log(error);
   }
 }
 
